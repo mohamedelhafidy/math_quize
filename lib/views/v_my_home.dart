@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/views/v_add_quiz.dart';
+import 'package:math_quize/views/v_operation.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 
@@ -37,7 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 WidgetElevatedButton(
                   width: double.infinity,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ViewOperationPage()),
+                    );
+                  },
                   title: ConstAppName.quiz,
                 ),
               ],

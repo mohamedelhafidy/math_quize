@@ -1,12 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/controllers/c_method_calcul.dart';
+import 'package:math_quize/views/v_answer.dart';
+import 'package:math_quize/views/v_question.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_dropdown_button.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 import 'package:math_quize/widgets/w_textfield.dart';
 
 class ViewAddQuiz extends StatefulWidget {
-  const ViewAddQuiz({super.key});
+  const ViewAddQuiz({
+    Key? key,
+    required this.operation,
+  }) : super(key: key);
+  final String operation;
 
   @override
   State<ViewAddQuiz> createState() => _ViewAddQuizState();
@@ -22,9 +31,9 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
   @override
   void initState() {
     super.initState();
-    _controllerQuestion.text = '2';
+    _controllerQuestion.text = '1';
     _controllerStartValue.text = '0';
-    _controllerEndValue.text = '3';
+    _controllerEndValue.text = '2';
   }
 
   @override
@@ -37,10 +46,10 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
           child: Column(
             children: [
               Expanded(
-                child: Icon(
-                  Icons.add,
-                  size: 70,
-                  color: ConstAppName.colorButton,
+                child: Text(
+                  widget.operation,
+                  style:
+                      TextStyle(fontSize: 70, color: ConstAppName.colorButton),
                 ),
               ),
               Expanded(
@@ -100,11 +109,28 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                 child: Column(
                   children: [
                     WidgetElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // print(ControllerMethods().randomBetween(0, 10));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ViewQuestionPage(
+                                      operation: widget.operation,
+                                      lengthQuestion:
+                                          int.parse(_controllerQuestion.text),
+                                      startValue:
+                                          int.parse(_controllerStartValue.text),
+                                      endtValue:
+                                          int.parse(_controllerEndValue.text),
+                                    )),
+                          );
+                        },
                         title: ConstAppName.geQUIZ,
                         width: (MediaQuery.of(context).size.width)),
                     WidgetElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         title: ConstAppName.goBack,
                         width: (MediaQuery.of(context).size.width)),
                   ],

@@ -4,12 +4,21 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/views/v_add_quiz.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_card_operation.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 
 class ViewOperationPage extends StatelessWidget {
   const ViewOperationPage({super.key});
+
+  goToAddQuiz(BuildContext context, String operation) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => ViewAddQuiz(operation: operation)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,16 +47,32 @@ class ViewOperationPage extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: [
-                        WidgetCardOperation(title: '+', onTap: () {}),
-                        WidgetCardOperation(title: '-', onTap: () {}),
+                        WidgetCardOperation(
+                            title: '+',
+                            onTap: () {
+                              goToAddQuiz(context, '+');
+                            }),
+                        WidgetCardOperation(
+                            title: '-',
+                            onTap: () {
+                              goToAddQuiz(context, '-');
+                            }),
                       ],
                     ),
                   ),
                   Expanded(
                     child: Row(
                       children: [
-                        WidgetCardOperation(title: 'x', onTap: () {}),
-                        WidgetCardOperation(title: '÷', onTap: () {}),
+                        WidgetCardOperation(
+                            title: 'x',
+                            onTap: () {
+                              goToAddQuiz(context, 'x');
+                            }),
+                        WidgetCardOperation(
+                            title: '÷',
+                            onTap: () {
+                              goToAddQuiz(context, '÷');
+                            }),
                       ],
                     ),
                   ),
