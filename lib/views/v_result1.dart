@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/views/v_my_home.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 
 class ViewResultPage extends StatelessWidget {
@@ -27,7 +28,7 @@ class ViewResultPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.9,
                     child: Image.asset('assets/images/cong.gif',
                         fit: BoxFit.cover),
@@ -45,11 +46,19 @@ class ViewResultPage extends StatelessWidget {
                       ),
                       Text(
                         ConstAppName.outOf + totalOfQuestion,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const MyHomePage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
                         child: Text(
                           ConstAppName.goToHome,
                           style: TextStyle(

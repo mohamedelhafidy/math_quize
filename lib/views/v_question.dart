@@ -1,25 +1,26 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
+import 'package:math_quize/views/v_result1.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 
 class ViewQuestionPage extends StatefulWidget {
   const ViewQuestionPage({
-    Key? key,
+    super.key,
     required this.operation,
     required this.lengthQuestion,
     required this.startValue,
     required this.endtValue,
-  }) : super(key: key);
+    required this.time,
+  });
   final String operation;
   final int lengthQuestion;
   final int startValue;
   final int endtValue;
+  final int time;
 
   @override
   State<ViewQuestionPage> createState() => _ViewWuestionPageState();
@@ -27,26 +28,59 @@ class ViewQuestionPage extends StatefulWidget {
 
 class _ViewWuestionPageState extends State<ViewQuestionPage> {
   int score = 0;
+  int questionLength = 0;
   var list = [];
   var listQues = [];
   getQuestion() {
+    if (questionLength == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => ViewResultPage(
+            score: '$score',
+            totalOfQuestion: '${widget.lengthQuestion}',
+          ),
+        ),
+      );
+      return;
+    }
     setState(() {
+      seconds = widget.time;
       listQues = ControllerMethods()
           .getList(widget.operation, widget.startValue, widget.endtValue);
       list =
           ControllerMethods().getForValue(listQues[1], int.parse(listQues[2]));
+      questionLength--;
+    });
+    stertTimer();
+  }
+
+  int seconds = 0;
+  Timer? timer;
+  void stertTimer() {
+    const duration = Duration(seconds: 1);
+    timer = Timer.periodic(duration, (Timer t) {
+      setState(() {
+        seconds--;
+      });
+      if (seconds == 0) {
+        getQuestion();
+        t.cancel();
+      }
     });
   }
 
   @override
   void initState() {
     super.initState();
+    questionLength = widget.lengthQuestion;
+
     getQuestion();
   }
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width * 0.4;
+    // var width = MediaQuery.of(context).size.width * 0.4;
     return Scaffold(
       appBar: const WidgetAppBar(),
       body: Center(
@@ -72,7 +106,7 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
                             ConstAppName.colorButton),
                       ),
                     ),
-                    Text('Score $score'),
+                    Text('Score $seconds'),
                   ],
                 ),
               ),
@@ -85,8 +119,8 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
                   Expanded(
                     child: Text(
                       listQues[0],
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
                   //== generate list of widget button
@@ -171,19 +205,19 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
   }
 }
 
-class AnswerButton extends StatelessWidget {
-  final String text;
+// class AnswerButton extends StatelessWidget {
+//   final String text;
 
-  const AnswerButton({super.key, required this.text});
+//   const AnswerButton({super.key, required this.text});
 
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        // Handle button press
-        print('Selected answer: $text');
-      },
-      child: Text(text),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return ElevatedButton(
+//       onPressed: () {
+//         // Handle button press
+//         print('Selected answer: $text');
+//       },
+//       child: Text(text),
+//     );
+//   }
+// }

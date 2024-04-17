@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:math_quize/views/v_add_quiz.dart';
 import 'package:math_quize/views/v_my_home.dart';
-import 'package:math_quize/views/v_operation.dart';
-import 'package:math_quize/views/v_question.dart';
-import 'package:math_quize/views/v_answer.dart';
-import 'package:math_quize/views/v_result1.dart';
 
 void main() {
   runApp(const MyApp());

@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/views/v_answer.dart';
 import 'package:math_quize/views/v_question.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_dropdown_button.dart';
@@ -12,9 +10,9 @@ import 'package:math_quize/widgets/w_textfield.dart';
 
 class ViewAddQuiz extends StatefulWidget {
   const ViewAddQuiz({
-    Key? key,
+    super.key,
     required this.operation,
-  }) : super(key: key);
+  });
   final String operation;
 
   @override
@@ -22,18 +20,17 @@ class ViewAddQuiz extends StatefulWidget {
 }
 
 class _ViewAddQuizState extends State<ViewAddQuiz> {
-  late final TextEditingController _controllerQuestion =
-      TextEditingController();
-  late final TextEditingController _controllerStartValue =
-      TextEditingController();
-  late final TextEditingController _controllerEndValue =
-      TextEditingController();
+  final TextEditingController _controllerQuestion = TextEditingController();
+  final TextEditingController _controllerStartValue = TextEditingController();
+  final TextEditingController _controllerEndValue = TextEditingController();
+
+  int time = 5;
   @override
   void initState() {
     super.initState();
-    _controllerQuestion.text = '1';
+    _controllerQuestion.text = '5';
     _controllerStartValue.text = '0';
-    _controllerEndValue.text = '2';
+    _controllerEndValue.text = '10';
   }
 
   @override
@@ -92,15 +89,11 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                     const SizedBox(width: 15),
                     WidgetDropdownButton(
                       calkBack: (value) {
-                        // setState(() {
-                        //   _controllerEndValue.text = value.toString();
-                        // });
+                        setState(() {
+                          time = value;
+                        });
                       },
                     ),
-                    // Text(
-                    //   timesValue,
-                    //   style: const TextStyle(fontWeight: FontWeight.bold),
-                    // )
                   ],
                 ),
               ),
@@ -122,6 +115,7 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                                           int.parse(_controllerStartValue.text),
                                       endtValue:
                                           int.parse(_controllerEndValue.text),
+                                      time: time,
                                     )),
                           );
                         },
