@@ -28,4 +28,5 @@ class ConstAppName {
   static int timesValue = 5;
 
   static const String imageHome = 'assets/images/logo.png';
+  static const String congratulationGif = 'assets/images/cong.gif';
 }

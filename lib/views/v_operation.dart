@@ -82,7 +82,9 @@ class ViewOperationPage extends StatelessWidget {
             Expanded(
               child: Center(
                 child: WidgetElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     title: ConstAppName.goBack,
                     width: double.infinity),
               ),

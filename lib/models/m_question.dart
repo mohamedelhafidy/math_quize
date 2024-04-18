@@ -1,13 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class ModelQuestion {
-  String question;
-  String answer;
-  String enterValue;
-  bool isCorrectAnswer;
+  String operation;
+  int lengthQuestion;
+  int startValue;
+  int endValue;
+  int time;
 
-  ModelQuestion(
-    this.question,
-    this.answer,
-    this.enterValue,
-    this.isCorrectAnswer,
-  );
+  ModelQuestion({
+    required this.operation,
+    required this.lengthQuestion,
+    required this.startValue,
+    required this.endValue,
+    required this.time,
+  });
 }

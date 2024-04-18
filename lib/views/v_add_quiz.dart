@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/models/m_question.dart';
 import 'package:math_quize/views/v_question.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_dropdown_button.dart';
@@ -103,20 +104,21 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                   children: [
                     WidgetElevatedButton(
                         onPressed: () {
-                          // print(ControllerMethods().randomBetween(0, 10));
+                          var data = ModelQuestion(
+                            operation: widget.operation,
+                            lengthQuestion: int.parse(_controllerQuestion.text),
+                            startValue: int.parse(_controllerStartValue.text),
+                            endValue: int.parse(_controllerEndValue.text),
+                            time: time,
+                          );
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ViewQuestionPage(
-                                      operation: widget.operation,
-                                      lengthQuestion:
-                                          int.parse(_controllerQuestion.text),
-                                      startValue:
-                                          int.parse(_controllerStartValue.text),
-                                      endtValue:
-                                          int.parse(_controllerEndValue.text),
-                                      time: time,
-                                    )),
+                              builder: (context) => ViewQuestionPage(
+                                modelQuestion: data,
+                              ),
+                            ),
                           );
                         },
                         title: ConstAppName.geQUIZ,

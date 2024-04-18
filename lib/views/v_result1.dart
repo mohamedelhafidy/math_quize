@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/models/m_answer.dart';
+import 'package:math_quize/views/v_answer.dart';
 import 'package:math_quize/views/v_my_home.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 
@@ -10,13 +12,16 @@ class ViewResultPage extends StatelessWidget {
     super.key,
     required this.score,
     required this.totalOfQuestion,
+    required this.answerList,
   });
 
   final String score;
   final String totalOfQuestion;
+  final List<ModelAnswer> answerList;
 
   @override
   Widget build(BuildContext context) {
+    var data = answerList;
     return Scaffold(
       appBar: const WidgetAppBar(),
       body: Container(
@@ -30,7 +35,7 @@ class ViewResultPage extends StatelessWidget {
                 Expanded(
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    child: Image.asset('assets/images/cong.gif',
+                    child: Image.asset(ConstAppName.congratulationGif,
                         fit: BoxFit.cover),
                   ),
                 ),
@@ -66,7 +71,15 @@ class ViewResultPage extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const ViewAnswerPage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
                         child: Text(
                           ConstAppName.checkYourAnswer,
                           style: TextStyle(

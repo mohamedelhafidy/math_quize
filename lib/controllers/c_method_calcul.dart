@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 
 class ControllerMethods {
@@ -87,19 +85,5 @@ class ControllerMethods {
     int randomIndex = Random().nextInt(list.length);
     var randomChoice = list[randomIndex];
     return randomChoice;
-  }
-
-//
-  Future<int> timerMethod(int seconds) async {
-    int sec = 0;
-    const duration = Duration(seconds: 1);
-    Timer timer = Timer.periodic(duration, (Timer t) {
-      // print('Timer fired every 1 second ${t.tick} s');
-      if (seconds == t.tick) {
-        t.cancel();
-      }
-      sec = t.tick;
-    });
-    return sec;
   }
 }
