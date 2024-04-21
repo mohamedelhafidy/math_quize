@@ -1,5 +1,8 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
+import 'package:math_quize/constants/const_name.dart';
+
 class ControllerMethods {
   //====
   // Methods to generate list of questions  for the quiz.
@@ -33,7 +36,7 @@ class ControllerMethods {
         break;
       default:
     }
-    String op = '$v1  $operation $v2 = ?';
+    String op = '$v1 $operation $v2 = ?';
 
     question.add(op);
 
@@ -45,12 +48,13 @@ class ControllerMethods {
 // Generate a random number between the given 4 values
   List getForValue(String answer, int max) {
     var list = [];
+    if (max < 5) max = (max + 1) * 5;
     for (int i = 0; i < 3; i++) {
       var value = randomBetween(0, max).toString();
       if (list.contains(value) || answer == value) {
         i--;
       } else {
-        list.add('$value');
+        list.add(value);
       }
     }
     final random = Random();
@@ -85,5 +89,33 @@ class ControllerMethods {
     int randomIndex = Random().nextInt(list.length);
     var randomChoice = list[randomIndex];
     return randomChoice;
+  }
+
+  Widget getIcon(String answer, String value) {
+    int ans = int.parse(answer);
+    int val = int.parse(value);
+    if (ans == val) {
+      return const Icon(
+        Icons.verified,
+        size: 40,
+        color: Colors.green,
+      );
+    } else {
+      return const Icon(
+        Icons.cancel,
+        size: 40,
+        color: Colors.red,
+      );
+    }
+  }
+
+  String getImage(String score, String totalOfQuestion) {
+    int score0 = int.parse(score);
+    int totalOfQuestion0 = int.parse(totalOfQuestion);
+    if (score0 < totalOfQuestion0 / 2) {
+      return ConstAppName.commasatatons;
+    } else {
+      return ConstAppName.congratulationGif;
+    }
   }
 }

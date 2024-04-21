@@ -31,18 +31,19 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                WidgetElevatedButton(
-                  width: double.infinity,
-                  onPressed: () {},
-                  title: ConstAppName.gePDF,
-                ),
+                // WidgetElevatedButton(
+                //   width: double.infinity,
+                //   onPressed: () {},
+                //   title: ConstAppName.gePDF,
+                // ),
                 WidgetElevatedButton(
                   width: double.infinity,
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ViewOperationPage()),
+                        builder: (context) => const ViewOperationPage(),
+                      ),
                     );
                   },
                   title: ConstAppName.quiz,

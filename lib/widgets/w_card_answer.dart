@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/controllers/c_method_calcul.dart';
+import 'package:math_quize/models/m_answer.dart';
 
 class WidgetCardAnswer extends StatelessWidget {
   const WidgetCardAnswer({
     super.key,
-    required this.quation,
-    required this.answer,
-    required this.value,
+    required this.data,
   });
 
-  final String quation;
-  final String answer;
-  final String value;
+  final ModelAnswer data;
 
   @override
   Widget build(BuildContext context) {
@@ -26,26 +24,31 @@ class WidgetCardAnswer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(
-            Icons.verified,
-            size: 40,
-            color: Colors.white,
-          ),
+          ControllerMethods().getIcon(data.answer, data.value),
+          // const Icon(
+          //   Icons.verified,
+          //   size: 40,
+          //   color: Colors.white,
+          // ),
           const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('$quation = ?',
+              Text(data.operation,
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                       color: Colors.white)),
-              Text('Answer = $answer',
+              Text('Answer = ${data.answer}',
                   style: const TextStyle(color: Colors.grey)),
             ],
           ),
           const Spacer(),
-          Text(value, style: const TextStyle(color: Colors.orange))
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+                Text(data.value, style: const TextStyle(color: Colors.orange)),
+          )
         ],
       ),
     );
