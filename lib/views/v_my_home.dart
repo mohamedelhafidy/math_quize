@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/views/v_operation.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
+import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -13,10 +16,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+    FlutterNativeSplash.remove();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const WidgetAppBar(),
-      drawer: const Drawer(),
+      drawer: const WidgetDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -1,10 +1,10 @@
 name: math_quize
 description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.3 <4.0.0'
+  sdk: ">=3.3.3 <4.0.0"
 
 dependencies:
   flutter:
@@ -16,8 +16,45 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-flutter:
+  flutter_native_splash: ^2.4.0
+  flutter_launcher_icons: "^0.13.1"
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/logo.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/images/logo.png"
+    icon_size: 256 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/logo.png"
+
+# flutter_native_splash-development.yaml
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/image_splash.png
+  branding: assets/images/image_splash.png
+  color_dark: "#121212"
+  image_dark: assets/images/image_splash.png
+  branding_dark: assets/images/image_splash.png
+
+  android_12:
+    image: assets/images/image_splash.png
+    icon_background_color: "#ffffff"
+    image_dark: assets/images/image_splash.png
+    icon_background_color_dark: "#121212"
+
+  web: false
+
+flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

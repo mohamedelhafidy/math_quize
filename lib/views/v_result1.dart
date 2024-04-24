@@ -7,6 +7,7 @@ import 'package:math_quize/models/m_answer.dart';
 import 'package:math_quize/views/v_answer.dart';
 import 'package:math_quize/views/v_my_home.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
+import 'package:math_quize/widgets/w_drawer.dart';
 
 class ViewResultPage extends StatelessWidget {
   const ViewResultPage({
@@ -23,6 +24,7 @@ class ViewResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const WidgetDrawer(),
       appBar: const WidgetAppBar(),
       body: Container(
         margin: const EdgeInsets.all(8),

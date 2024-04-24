@@ -9,6 +9,7 @@ import 'package:math_quize/models/m_answer.dart';
 import 'package:math_quize/models/m_question.dart';
 import 'package:math_quize/views/v_result1.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
+import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 
 class ViewQuestionPage extends StatefulWidget {
@@ -105,6 +106,7 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const WidgetDrawer(),
       appBar: const WidgetAppBar(),
       body: Center(
         child: Column(

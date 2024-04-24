@@ -11,7 +11,7 @@ class WidgetAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: const Icon(Icons.menu),
+      // leading: const Icon(Icons.menu),
       iconTheme: const IconThemeData(color: Colors.white),
       foregroundColor: Colors.white,
       backgroundColor: ConstAppName.colorButton,
@@ -20,10 +20,14 @@ class WidgetAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: GoogleFonts.abel(fontSize: 22),
       ),
       centerTitle: true,
-      actions: const [
+      actions: [
         Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Icon(CupertinoIcons.music_albums),
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            ConstAppName.icon,
+            width: 45,
+            height: 45,
+          ),
         ),
       ],
     );

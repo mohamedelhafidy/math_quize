@@ -5,6 +5,7 @@ import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/models/m_question.dart';
 import 'package:math_quize/views/v_question.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
+import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_dropdown_button.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 import 'package:math_quize/widgets/w_textfield.dart';
@@ -37,6 +38,7 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const WidgetDrawer(),
       appBar: const WidgetAppBar(),
       body: SingleChildScrollView(
         child: SizedBox(

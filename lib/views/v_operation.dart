@@ -1,12 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/views/v_add_quiz.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_card_operation.dart';
+import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 
 class ViewOperationPage extends StatelessWidget {
@@ -23,6 +23,7 @@ class ViewOperationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const WidgetDrawer(),
       appBar: const WidgetAppBar(),
       body: Container(
         margin: const EdgeInsets.all(10),

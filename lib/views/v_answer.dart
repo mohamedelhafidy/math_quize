@@ -8,6 +8,7 @@ import 'package:math_quize/models/m_answer.dart';
 import 'package:math_quize/views/v_my_home.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_card_answer.dart';
+import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 
 class ViewAnswerPage extends StatelessWidget {
@@ -21,6 +22,7 @@ class ViewAnswerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const WidgetDrawer(),
       appBar: const WidgetAppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
