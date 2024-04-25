@@ -118,4 +118,35 @@ class ControllerMethods {
       return ConstAppName.congratulationGif;
     }
   }
+
+// validated Email and Name
+
+  bool isEmailValid(String email) {
+    // Basic email validation using regex
+    // You can implement more complex validation if needed
+    return RegExp(r'^[\w-\.]+@[a-zA-Z]+\.[a-zA-Z]{2,}$').hasMatch(email);
+  }
+
+  String? validateEmail(String value) {
+    String? emailErrorText;
+    if (value.isEmpty) {
+      emailErrorText = 'Email is required';
+    } else if (!isEmailValid(value)) {
+      emailErrorText = 'Enter a valid email address';
+    } else {
+      emailErrorText = null;
+    }
+    return emailErrorText;
+  }
+
+  String? validateEnter(String value, String message) {
+    String? nameErrorText;
+    if (value.trim().isEmpty) {
+      nameErrorText = message;
+    } else {
+      nameErrorText = null;
+    }
+
+    return nameErrorText;
+  }
 }

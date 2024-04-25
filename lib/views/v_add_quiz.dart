@@ -8,7 +8,7 @@ import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_dropdown_button.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
-import 'package:math_quize/widgets/w_textfield.dart';
+import 'package:math_quize/widgets/w_textfieldNumber.dart';
 
 class ViewAddQuiz extends StatefulWidget {
   const ViewAddQuiz({
@@ -60,17 +60,17 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      WidgetTextField(
+                      WidgetTextFieldNumber(
                         controller: _controllerQuestion,
                         label: ConstAppName.questionLengthName,
                         maxlength: 2,
                       ),
-                      WidgetTextField(
+                      WidgetTextFieldNumber(
                         controller: _controllerStartValue,
                         label: ConstAppName.startValue,
                         maxlength: 4,
                       ),
-                      WidgetTextField(
+                      WidgetTextFieldNumber(
                         controller: _controllerEndValue,
                         label: ConstAppName.endValueName,
                         maxlength: 4,
