@@ -1,7 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/models/m_question.dart';
 import 'package:math_quize/views/v_question.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
@@ -62,17 +64,17 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                     children: [
                       WidgetTextFieldNumber(
                         controller: _controllerQuestion,
-                        label: ConstAppName.questionLengthName,
+                        label: LocaleData.questionLengthName.getString(context),
                         maxlength: 2,
                       ),
                       WidgetTextFieldNumber(
                         controller: _controllerStartValue,
-                        label: ConstAppName.startValue,
+                        label: LocaleData.startValue.getString(context),
                         maxlength: 4,
                       ),
                       WidgetTextFieldNumber(
                         controller: _controllerEndValue,
-                        label: ConstAppName.endValueName,
+                        label: LocaleData.endValueName.getString(context),
                         maxlength: 4,
                       ),
                     ],
@@ -85,9 +87,9 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                   children: [
                     const Icon(Icons.timer),
                     const SizedBox(width: 15),
-                    const Text(
-                      ConstAppName.timeName,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    Text(
+                      LocaleData.timeName.getString(context),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(width: 15),
                     WidgetDropdownButton(
@@ -123,13 +125,13 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                             ),
                           );
                         },
-                        title: ConstAppName.geQUIZ,
+                        title: LocaleData.geQUIZ.getString(context),
                         width: (MediaQuery.of(context).size.width)),
                     WidgetElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        title: ConstAppName.goBack,
+                        title: LocaleData.goBack.getString(context),
                         width: (MediaQuery.of(context).size.width)),
                   ],
                 ),

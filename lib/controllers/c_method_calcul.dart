@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/localization/locales.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
@@ -129,12 +131,12 @@ class ControllerMethods {
     return RegExp(r'^[\w-\.]+@[a-zA-Z]+\.[a-zA-Z]{2,}$').hasMatch(email);
   }
 
-  String? validateEmail(String value) {
+  String? validateEmail(BuildContext context, String value) {
     String? emailErrorText;
     if (value.isEmpty) {
-      emailErrorText = ConstAppName.msgErrorEmail;
+      emailErrorText = LocaleData.msgErrorEmail.getString(context);
     } else if (!isEmailValid(value)) {
-      emailErrorText = ConstAppName.msgErrorEmail2;
+      emailErrorText = LocaleData.msgErrorEmail2.getString(context);
     } else {
       emailErrorText = null;
     }

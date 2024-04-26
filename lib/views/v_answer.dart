@@ -2,8 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 
-import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/models/m_answer.dart';
 import 'package:math_quize/views/v_my_home.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
@@ -53,7 +54,7 @@ class ViewAnswerPage extends StatelessWidget {
                       (route) => false,
                     );
                   },
-                  title: ConstAppName.goBack,
+                  title: LocaleData.goBack.getString(context),
                 ),
               ],
             ),

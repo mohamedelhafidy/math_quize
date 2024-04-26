@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/views/v_operation.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_drawer.dart';
@@ -55,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     );
                   },
-                  title: ConstAppName.quiz,
+                  title: LocaleData.quiz.getString(context),
                 ),
               ],
             ),

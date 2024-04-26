@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:math_quize/constants/const_name.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
+import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 import 'package:math_quize/widgets/w_textfield.dart';
@@ -40,40 +41,40 @@ class ViewContactPageState extends State<ViewContactPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 WidgetTextField(
-                  label: ConstAppName.lblName,
+                  label: LocaleData.lblName.getString(context),
                   controller: _controllerName,
                   errorText: _nameErrorText,
                   validator: (value) => _emailErrorText,
                   onChanged: (value) {
                     setState(() {
-                      _nameErrorText = ControllerMethods()
-                          .validateEnter(value, ConstAppName.msgErrorName);
+                      _nameErrorText = ControllerMethods().validateEnter(
+                          value, LocaleData.msgErrorName.getString(context));
                     });
                   },
                 ),
                 const SizedBox(height: 16),
                 WidgetTextField(
-                  label: ConstAppName.lblEmail,
+                  label: LocaleData.lblEmail.getString(context),
                   controller: _controllerEmail,
                   errorText: _emailErrorText,
                   validator: (value) => _emailErrorText,
                   onChanged: (value) {
                     setState(() {
                       _emailErrorText =
-                          ControllerMethods().validateEmail(value);
+                          ControllerMethods().validateEmail(context, value);
                     });
                   },
                 ),
                 const SizedBox(height: 16),
                 WidgetTextField(
-                  label: ConstAppName.lblMessage,
+                  label: LocaleData.lblMessage.getString(context),
                   controller: _controllerMessage,
                   errorText: _messageErrorText,
                   validator: (value) => _messageErrorText,
                   onChanged: (value) {
                     setState(() {
-                      _messageErrorText = ControllerMethods()
-                          .validateEnter(value, ConstAppName.msgErrorMessage);
+                      _messageErrorText = ControllerMethods().validateEnter(
+                          value, LocaleData.msgErrorMessage.getString(context));
                     });
                   },
                   maxLines: 5,
@@ -86,7 +87,7 @@ class ViewContactPageState extends State<ViewContactPage> {
                       onPressed: () {
                         _submitForm();
                       },
-                      title: ConstAppName.send,
+                      title: LocaleData.send.getString(context),
                       width: MediaQuery.of(context).size.width * 0.5,
                     ),
                   ],

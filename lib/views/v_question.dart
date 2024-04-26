@@ -7,7 +7,7 @@ import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
 import 'package:math_quize/models/m_answer.dart';
 import 'package:math_quize/models/m_question.dart';
-import 'package:math_quize/views/v_result1.dart';
+import 'package:math_quize/views/v_result.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
