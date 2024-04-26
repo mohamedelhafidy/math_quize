@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:math_quize/constants/const_name.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
 class ControllerMethods {
   //====
@@ -130,9 +132,9 @@ class ControllerMethods {
   String? validateEmail(String value) {
     String? emailErrorText;
     if (value.isEmpty) {
-      emailErrorText = 'Email is required';
+      emailErrorText = ConstAppName.msgErrorEmail;
     } else if (!isEmailValid(value)) {
-      emailErrorText = 'Enter a valid email address';
+      emailErrorText = ConstAppName.msgErrorEmail2;
     } else {
       emailErrorText = null;
     }
@@ -148,5 +150,28 @@ class ControllerMethods {
     }
 
     return nameErrorText;
+  }
+
+//============
+// Open PlayStore  or App Store Page.
+  void openPlayStore() async {
+    var url = Uri.parse(
+        'https://play.google.com/store/apps/developer?id=INFOWA7FID&hl=ar&gl=US');
+    if (!await launchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  // Open Whatsapp App for send MSG.
+  void launchWhatsAppUri() async {
+    const link = WhatsAppUnilink(
+      phoneNumber: '+212640001009',
+      text: "Welcome. Thank you for this wonderful application",
+    );
+    // Convert the WhatsAppUnilink instance to a Uri.
+    // The "launch" method is part of "url_launcher".
+    await launchUrl(link.asUri());
   }
 }

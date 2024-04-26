@@ -25,11 +25,6 @@ class WidgetCardAnswer extends StatelessWidget {
       child: Row(
         children: [
           ControllerMethods().getIcon(data.answer, data.value),
-          // const Icon(
-          //   Icons.verified,
-          //   size: 40,
-          //   color: Colors.white,
-          // ),
           const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +34,7 @@ class WidgetCardAnswer extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                       color: Colors.white)),
-              Text('Answer = ${data.answer}',
+              Text('${ConstAppName.titleAnswer} ${data.answer}',
                   style: const TextStyle(color: Colors.grey)),
             ],
           ),

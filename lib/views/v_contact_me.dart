@@ -47,7 +47,7 @@ class ViewContactPageState extends State<ViewContactPage> {
                   onChanged: (value) {
                     setState(() {
                       _nameErrorText = ControllerMethods()
-                          .validateEnter(value, 'Name is required');
+                          .validateEnter(value, ConstAppName.msgErrorName);
                     });
                   },
                 ),
@@ -73,7 +73,7 @@ class ViewContactPageState extends State<ViewContactPage> {
                   onChanged: (value) {
                     setState(() {
                       _messageErrorText = ControllerMethods()
-                          .validateEnter(value, 'Message is required');
+                          .validateEnter(value, ConstAppName.msgErrorMessage);
                     });
                   },
                   maxLines: 5,

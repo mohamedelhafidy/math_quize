@@ -38,10 +38,6 @@ class ViewAnswerPage extends StatelessWidget {
               },
             ),
           ),
-          // const WidgetCardAnswer(quation: '2 + 6', answer: '8', value: '8'),
-          // const WidgetCardAnswer(quation: '1 + 3', answer: '4', value: '4'),
-          // const WidgetCardAnswer(quation: '1 + 6', answer: '7', value: '7'),
-          // const WidgetCardAnswer(quation: '1 + 10', answer: '11', value: '11'),
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -31,9 +31,10 @@ class ViewOperationPage extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
+              flex: 2,
               child: Center(
                 child: Text(
-                  'Choose any one',
+                  ConstAppName.chooseAnyOne,
                   style: GoogleFonts.aBeeZee(
                       fontSize: 40,
                       color: ConstAppName.colorButton,
@@ -42,7 +43,7 @@ class ViewOperationPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 8,
               child: Column(
                 children: [
                   Expanded(
@@ -81,6 +82,7 @@ class ViewOperationPage extends StatelessWidget {
               ),
             ),
             Expanded(
+              flex: 2,
               child: Center(
                 child: WidgetElevatedButton(
                     onPressed: () {
@@ -89,6 +91,10 @@ class ViewOperationPage extends StatelessWidget {
                     title: ConstAppName.goBack,
                     width: double.infinity),
               ),
+            ),
+            // Advertisement
+            const Expanded(
+              child: Text('public'),
             ),
           ],
         ),

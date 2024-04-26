@@ -1,9 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/views/v_contact_me.dart';
+import 'package:math_quize/controllers/c_method_calcul.dart';
 import 'package:math_quize/views/v_my_home.dart';
 
 class WidgetDrawer extends StatelessWidget {
@@ -31,33 +30,54 @@ class WidgetDrawer extends StatelessWidget {
       child: Wrap(
         // runSpacing: 5, // space between row
         children: [
+          //  Button Menu Home
           ListTile(
             leading: const Icon(Icons.home_outlined),
-            title: const Text("Home"),
+            title: Text(
+              ConstAppName.titleHome,
+              style: GoogleFonts.abel(fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => const MyHomePage()));
             },
           ),
+          // Button Menu Contact
           ListTile(
-            leading: const Icon(Icons.message_outlined),
-            title: const Text("Contact"),
+              leading: const Icon(Icons.message_outlined),
+              title: Text(
+                ConstAppName.titleContact,
+                style: GoogleFonts.abel(fontWeight: FontWeight.bold),
+              ),
+              onTap: ControllerMethods().launchWhatsAppUri
+              // () {
+              //   // // close navigation drawer before
+              //   // Navigator.pop(context);
+              //   // Navigator.of(context).push(
+              //   //   MaterialPageRoute(
+              //   //     builder: (_) => const ViewContactPage(),
+              //   //   ),
+              //   // );
+              // },
+              ),
+          // Button Menu More apps
+          ListTile(
+            leading: const Icon(Icons.more_outlined),
+            title: Text(
+              ConstAppName.titleMoreApps,
+              style: GoogleFonts.abel(fontWeight: FontWeight.bold),
+            ),
             onTap: () {
-              // close navigation drawer before
-              Navigator.pop(context);
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => const ViewContactPage(),
-              ));
+              ControllerMethods().openPlayStore();
             },
           ),
-          ListTile(
-            leading: const Icon(Icons.share_outlined),
-            title: const Text("Share"),
-            onTap: () {},
-          ),
+          //  Button Menu Exit app
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined),
-            title: const Text("Exit"),
+            title: Text(
+              ConstAppName.titleExitApp,
+              style: GoogleFonts.abel(fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               exit(0);
             },

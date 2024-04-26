@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
 import 'package:math_quize/models/m_answer.dart';
@@ -49,13 +48,11 @@ class ViewResultPage extends StatelessWidget {
                     children: [
                       Text(
                         ConstAppName.yourScore + score,
-                        style: TextStyle(
-                            fontSize: 25, color: ConstAppName.colorShade300),
+                        style: ConstAppName.titleStyle25,
                       ),
                       Text(
                         ConstAppName.outOf + totalOfQuestion,
-                        style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                        style: ConstAppName.titleStyle20,
                       ),
                       InkWell(
                         onTap: () {
@@ -69,8 +66,7 @@ class ViewResultPage extends StatelessWidget {
                         },
                         child: Text(
                           ConstAppName.goToHome,
-                          style: TextStyle(
-                              fontSize: 18, color: ConstAppName.colorShade300),
+                          style: ConstAppName.titleStyle18,
                         ),
                       ),
                       InkWell(
@@ -85,11 +81,8 @@ class ViewResultPage extends StatelessWidget {
                             (route) => false,
                           );
                         },
-                        child: Text(
-                          ConstAppName.checkYourAnswer,
-                          style: TextStyle(
-                              fontSize: 18, color: ConstAppName.colorShade300),
-                        ),
+                        child: Text(ConstAppName.checkYourAnswer,
+                            style: ConstAppName.titleStyle18),
                       ),
                     ],
                   ),
