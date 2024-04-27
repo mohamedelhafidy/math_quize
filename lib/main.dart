@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_localization/flutter_localization.dart';
-// import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/views/v_my_home.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:easy_localization/easy_localization.dart';

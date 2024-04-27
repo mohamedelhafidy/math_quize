@@ -95,20 +95,28 @@ class ControllerMethods {
   }
 
   Widget getIcon(String answer, String value) {
-    int ans = int.parse(answer);
-    int val = int.parse(value);
-    if (ans == val) {
-      return const Icon(
-        Icons.verified,
-        size: 40,
-        color: Colors.green,
-      );
-    } else {
+    if (value == "") {
       return const Icon(
         Icons.cancel,
         size: 40,
         color: Colors.red,
       );
+    } else {
+      int ans = int.parse(answer);
+      int val = int.parse(value);
+      if (ans == val) {
+        return const Icon(
+          Icons.verified,
+          size: 40,
+          color: Colors.green,
+        );
+      } else {
+        return const Icon(
+          Icons.cancel,
+          size: 40,
+          color: Colors.red,
+        );
+      }
     }
   }
 

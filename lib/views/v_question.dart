@@ -51,6 +51,7 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
       setState(() {
         answerList.add(ModelAnswer(
             operation: listQues[0], answer: listQues[1], value: value));
+        value = '';
       });
     }
     // check  if all questions have been answered go to  result page else show next question
