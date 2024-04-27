@@ -1,9 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 
 import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/models/m_question.dart';
 import 'package:math_quize/views/v_question.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
@@ -64,17 +63,17 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                     children: [
                       WidgetTextFieldNumber(
                         controller: _controllerQuestion,
-                        label: LocaleData.questionLengthName.getString(context),
+                        label: "questionLengthName".tr(context: context),
                         maxlength: 2,
                       ),
                       WidgetTextFieldNumber(
                         controller: _controllerStartValue,
-                        label: LocaleData.startValue.getString(context),
+                        label: "startValue".tr(context: context),
                         maxlength: 4,
                       ),
                       WidgetTextFieldNumber(
                         controller: _controllerEndValue,
-                        label: LocaleData.endValueName.getString(context),
+                        label: "endValueName".tr(context: context),
                         maxlength: 4,
                       ),
                     ],
@@ -88,7 +87,7 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                     const Icon(Icons.timer),
                     const SizedBox(width: 15),
                     Text(
-                      LocaleData.timeName.getString(context),
+                      "timeName".tr(context: context),
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(width: 15),
@@ -125,13 +124,13 @@ class _ViewAddQuizState extends State<ViewAddQuiz> {
                             ),
                           );
                         },
-                        title: LocaleData.geQUIZ.getString(context),
+                        title: "geQUIZ".tr(context: context),
                         width: (MediaQuery.of(context).size.width)),
                     WidgetElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        title: LocaleData.goBack.getString(context),
+                        title: "goBack".tr(context: context),
                         width: (MediaQuery.of(context).size.width)),
                   ],
                 ),

@@ -1,47 +1,13 @@
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/localization/locales.dart';
+import 'package:math_quize/localization/localization_checker.dart';
 
-class WidgetAppBar extends StatefulWidget implements PreferredSizeWidget {
+class WidgetAppBar extends StatelessWidget implements PreferredSizeWidget {
   const WidgetAppBar({
     super.key,
   });
-
-  @override
-  State<WidgetAppBar> createState() => _WidgetAppBarState();
-
-  @override
-  Size get preferredSize => AppBar().preferredSize;
-}
-
-class _WidgetAppBarState extends State<WidgetAppBar> {
-  late FlutterLocalization _flutterLocalization;
-  late String _currentLocale;
-
-  @override
-  void initState() {
-    super.initState();
-    _flutterLocalization = FlutterLocalization.instance;
-    _currentLocale = _flutterLocalization.currentLocale!.languageCode;
-  }
-
-  void _setLocale(String? value) {
-    if (value == null) return;
-    if (value == "en") {
-      _flutterLocalization.translate("en");
-    } else if (value == "ar") {
-      _flutterLocalization.translate("ar");
-    } else {
-      return;
-    }
-
-    setState(() {
-      _currentLocale = value;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +17,7 @@ class _WidgetAppBarState extends State<WidgetAppBar> {
       foregroundColor: Colors.white,
       backgroundColor: ConstAppName.colorButton,
       title: Text(
-        LocaleData.nameApp.getString(context),
+        "nameApp".tr(context: context),
         style: GoogleFonts.abel(fontSize: 22),
       ),
       centerTitle: true,
@@ -86,19 +52,14 @@ class _WidgetAppBarState extends State<WidgetAppBar> {
                   )),
             ],
             onChanged: (value) {
-              _setLocale(value);
+              LocalizationChecker.changeLangugeByCode(context, value!);
             },
           ),
         ),
-        // Padding(
-        //   padding: const EdgeInsets.all(8.0),
-        //   child: Image.asset(
-        //     ConstAppName.icon,
-        //     width: 45,
-        //     height: 45,
-        //   ),
-        // ),
       ],
     );
   }
+
+  @override
+  Size get preferredSize => AppBar().preferredSize;
 }

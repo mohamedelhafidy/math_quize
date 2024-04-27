@@ -1,9 +1,9 @@
-import 'package:flutter_localization/flutter_localization.dart';
+// import 'package:flutter_localization/flutter_localization.dart';
 
-const List<MapLocale> LOCALES = [
-  MapLocale("en", LocaleData.EN),
-  MapLocale("ar", LocaleData.AR),
-];
+// const List<MapLocale> LOCALES = [
+//   MapLocale("en", LocaleData.EN),
+//   MapLocale("ar", LocaleData.AR),
+// ];
 
 mixin LocaleData {
   static const String nameApp = 'nameApp';

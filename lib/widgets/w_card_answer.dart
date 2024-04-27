@@ -1,8 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/models/m_answer.dart';
 
 class WidgetCardAnswer extends StatelessWidget {
@@ -36,8 +35,7 @@ class WidgetCardAnswer extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                       color: Colors.white)),
-              Text(
-                  '${LocaleData.titleAnswer.getString(context)} ${data.answer}',
+              Text('${"titleAnswer".tr(context: context)} ${data.answer}',
                   style: const TextStyle(color: Colors.grey)),
             ],
           ),

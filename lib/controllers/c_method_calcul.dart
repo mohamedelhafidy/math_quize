@@ -1,9 +1,8 @@
 import 'dart:math';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/localization/locales.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
@@ -134,9 +133,9 @@ class ControllerMethods {
   String? validateEmail(BuildContext context, String value) {
     String? emailErrorText;
     if (value.isEmpty) {
-      emailErrorText = LocaleData.msgErrorEmail.getString(context);
+      emailErrorText = "msgErrorEmail".tr(context: context);
     } else if (!isEmailValid(value)) {
-      emailErrorText = LocaleData.msgErrorEmail2.getString(context);
+      emailErrorText = "msgErrorEmail2".tr(context: context);
     } else {
       emailErrorText = null;
     }

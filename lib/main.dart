@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
-import 'package:math_quize/localization/locales.dart';
+// import 'package:flutter_localization/flutter_localization.dart';
+// import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/views/v_my_home.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-void main() {
+void main() async {
+  //=======splash===========
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(const MyApp());
+//=========Localization======================
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'MA')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en', 'US'),
+      child: const MyApp()));
+
+  // runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-
-  final FlutterLocalization localization = FlutterLocalization.instance;
-  @override
-  void initState() {
-    configureLocalization();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,18 +33,10 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      supportedLocales: localization.supportedLocales,
-      localizationsDelegates: localization.localizationsDelegates,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       home: const MyHomePage(),
     );
-  }
-
-  void configureLocalization() {
-    localization.init(mapLocales: LOCALES, initLanguageCode: 'en');
-    localization.onTranslatedLanguage = onTranslatedLanguage;
-  }
-
-  void onTranslatedLanguage(Locale? locale) {
-    setState(() {});
   }
 }

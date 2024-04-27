@@ -1,9 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/models/m_answer.dart';
 import 'package:math_quize/views/v_answer.dart';
 import 'package:math_quize/views/v_my_home.dart';
@@ -49,11 +48,11 @@ class ViewResultPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        LocaleData.yourScore.getString(context) + score,
+                        "yourScore".tr(context: context) + score,
                         style: ConstAppName.titleStyle25,
                       ),
                       Text(
-                        LocaleData.outOf.getString(context) + totalOfQuestion,
+                        "outOf".tr(context: context) + totalOfQuestion,
                         style: ConstAppName.titleStyle20,
                       ),
                       InkWell(
@@ -67,7 +66,7 @@ class ViewResultPage extends StatelessWidget {
                           );
                         },
                         child: Text(
-                          LocaleData.goToHome.getString(context),
+                          "goToHome".tr(context: context),
                           style: ConstAppName.titleStyle18,
                         ),
                       ),
@@ -83,8 +82,7 @@ class ViewResultPage extends StatelessWidget {
                             (route) => false,
                           );
                         },
-                        child: Text(
-                            LocaleData.checkYourAnswer.getString(context),
+                        child: Text("checkYourAnswer".tr(context: context),
                             style: ConstAppName.titleStyle18),
                       ),
                     ],

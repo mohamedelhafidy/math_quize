@@ -1,10 +1,9 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:math_quize/constants/const_name.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/views/v_my_home.dart';
 
 class WidgetDrawer extends StatelessWidget {
@@ -36,7 +35,7 @@ class WidgetDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home_outlined),
             title: Text(
-              LocaleData.titleHome.getString(context),
+              "titleHome".tr(context: context),
               style: GoogleFonts.abel(fontWeight: FontWeight.bold),
             ),
             onTap: () {
@@ -48,7 +47,7 @@ class WidgetDrawer extends StatelessWidget {
           ListTile(
               leading: const Icon(Icons.message_outlined),
               title: Text(
-                LocaleData.titleContact.getString(context),
+                "titleContact".tr(context: context),
                 style: GoogleFonts.abel(fontWeight: FontWeight.bold),
               ),
               onTap: ControllerMethods().launchWhatsAppUri
@@ -66,7 +65,7 @@ class WidgetDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.more_outlined),
             title: Text(
-              LocaleData.titleMoreApps.getString(context),
+              "titleMoreApps".tr(context: context),
               style: GoogleFonts.abel(fontWeight: FontWeight.bold),
             ),
             onTap: () {
@@ -77,7 +76,7 @@ class WidgetDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.exit_to_app_outlined),
             title: Text(
-              LocaleData.titleExitApp.getString(context),
+              "titleExitApp".tr(context: context),
               style: GoogleFonts.abel(fontWeight: FontWeight.bold),
             ),
             onTap: () {
@@ -99,10 +98,8 @@ class WidgetDrawer extends StatelessWidget {
           const CircleAvatar(
               radius: 52, backgroundImage: AssetImage(ConstAppName.avatar)),
           const SizedBox(height: 12),
-          Text(LocaleData.nameDev.getString(context),
-              style: ConstAppName.titleStyle),
-          Text(LocaleData.email.getString(context),
-              style: ConstAppName.subtitleStyle),
+          Text("nameDev".tr(context: context), style: ConstAppName.titleStyle),
+          Text("email".tr(context: context), style: ConstAppName.subtitleStyle),
         ],
       ),
     );

@@ -1,7 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/localization/locales.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 import 'package:math_quize/widgets/w_textfield.dart';
@@ -41,20 +40,20 @@ class ViewContactPageState extends State<ViewContactPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 WidgetTextField(
-                  label: LocaleData.lblName.getString(context),
+                  label: "lblName".tr(context: context),
                   controller: _controllerName,
                   errorText: _nameErrorText,
                   validator: (value) => _emailErrorText,
                   onChanged: (value) {
                     setState(() {
                       _nameErrorText = ControllerMethods().validateEnter(
-                          value, LocaleData.msgErrorName.getString(context));
+                          value, "msgErrorName".tr(context: context));
                     });
                   },
                 ),
                 const SizedBox(height: 16),
                 WidgetTextField(
-                  label: LocaleData.lblEmail.getString(context),
+                  label: "lblEmail".tr(context: context),
                   controller: _controllerEmail,
                   errorText: _emailErrorText,
                   validator: (value) => _emailErrorText,
@@ -67,14 +66,14 @@ class ViewContactPageState extends State<ViewContactPage> {
                 ),
                 const SizedBox(height: 16),
                 WidgetTextField(
-                  label: LocaleData.lblMessage.getString(context),
+                  label: "lblMessage".tr(context: context),
                   controller: _controllerMessage,
                   errorText: _messageErrorText,
                   validator: (value) => _messageErrorText,
                   onChanged: (value) {
                     setState(() {
                       _messageErrorText = ControllerMethods().validateEnter(
-                          value, LocaleData.msgErrorMessage.getString(context));
+                          value, "msgErrorMessage".tr(context: context));
                     });
                   },
                   maxLines: 5,
@@ -87,7 +86,7 @@ class ViewContactPageState extends State<ViewContactPage> {
                       onPressed: () {
                         _submitForm();
                       },
-                      title: LocaleData.send.getString(context),
+                      title: "send".tr(context: context),
                       width: MediaQuery.of(context).size.width * 0.5,
                     ),
                   ],
