@@ -26,7 +26,7 @@ class ControllerMethods {
           return getList('-', startValue, endValue);
         }
         break;
-      case 'x':
+      case '×':
         answer = "${v1 * v2}";
         break;
       case '÷':

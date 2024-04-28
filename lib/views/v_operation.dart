@@ -2,16 +2,28 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/controllers/ads_manager.dart';
 import 'package:math_quize/views/v_add_quiz.dart';
 import 'package:math_quize/widgets/w_app_bar.dart';
 import 'package:math_quize/widgets/w_card_operation.dart';
 import 'package:math_quize/widgets/w_drawer.dart';
 import 'package:math_quize/widgets/w_elevated_btn.dart';
 
-class ViewOperationPage extends StatelessWidget {
+class ViewOperationPage extends StatefulWidget {
   const ViewOperationPage({super.key});
+
+  @override
+  State<ViewOperationPage> createState() => _ViewOperationPageState();
+}
+
+class _ViewOperationPageState extends State<ViewOperationPage> {
+  //=====Ads vaiable ==============================
+  late BannerAd _bannerAd;
+  bool _isLoaded = false;
+  //==============================================
 
   goToAddQuiz(BuildContext context, String operation) {
     Navigator.push(
@@ -19,6 +31,26 @@ class ViewOperationPage extends StatelessWidget {
       MaterialPageRoute(
           builder: (context) => ViewAddQuiz(operation: operation)),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //============ ADS ============
+    AdsManager().initGooleMobileAds();
+    _bannerAd = AdsManager().loadAdBanner(
+      (ad) {
+        setState(() {
+          _isLoaded = true;
+        });
+      },
+      (ad, error) {
+        setState(() {
+          _isLoaded = false;
+        });
+      },
+    );
+    //========================
   }
 
   @override
@@ -69,7 +101,7 @@ class ViewOperationPage extends StatelessWidget {
                         WidgetCardOperation(
                             title: 'x',
                             onTap: () {
-                              goToAddQuiz(context, 'x');
+                              goToAddQuiz(context, '×');
                             }),
                         WidgetCardOperation(
                             title: '÷',
@@ -94,8 +126,10 @@ class ViewOperationPage extends StatelessWidget {
               ),
             ),
             // Advertisement
-            const Expanded(
-              child: Text('public'),
+            Expanded(
+              child: Container(
+                child: AdsManager().bannerAdWidget(_bannerAd, _isLoaded),
+              ),
             ),
           ],
         ),

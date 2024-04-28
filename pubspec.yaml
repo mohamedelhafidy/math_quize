@@ -16,6 +16,7 @@ dependencies:
   whatsapp_unilink: ^2.1.0
   # flutter_localization: ^0.1.14
   easy_localization: ^3.0.6
+  google_mobile_ads: ^5.0.0
 
 dev_dependencies:
   flutter_test:

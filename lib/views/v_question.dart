@@ -2,8 +2,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quize/controllers/ads_manager.dart';
 import 'package:math_quize/controllers/c_method_calcul.dart';
 import 'package:math_quize/models/m_answer.dart';
 import 'package:math_quize/models/m_question.dart';
@@ -25,6 +27,11 @@ class ViewQuestionPage extends StatefulWidget {
 }
 
 class _ViewWuestionPageState extends State<ViewQuestionPage> {
+  //=====Ads vaiable ==============================
+  late BannerAd _bannerAd;
+  bool _isLoaded = false;
+  //==============================================
+
   int score = 0;
   int time = 0;
   int seconds = 0;
@@ -95,6 +102,21 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
   @override
   void initState() {
     super.initState();
+    //============ ADS ============
+    AdsManager().initGooleMobileAds();
+    _bannerAd = AdsManager().loadAdBanner(
+      (ad) {
+        setState(() {
+          _isLoaded = true;
+        });
+      },
+      (ad, error) {
+        setState(() {
+          _isLoaded = false;
+        });
+      },
+    );
+    //========================
     time = widget.modelQuestion.time;
     questionLength = widget.modelQuestion.lengthQuestion;
     startValue = widget.modelQuestion.startValue;
@@ -115,7 +137,7 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
           children: [
             // Circular progress indicator with countdown
             Expanded(
-              flex: 2,
+              flex: 5,
               child: Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -152,13 +174,13 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Column(
                 children: [
                   // Math question
                   Expanded(
                     child: Text(
-                      listQues[0],
+                      listQues[0].toString(),
                       style: const TextStyle(
                           fontSize: 24, fontWeight: FontWeight.bold),
                     ),
@@ -193,6 +215,11 @@ class _ViewWuestionPageState extends State<ViewQuestionPage> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                child: AdsManager().bannerAdWidget(_bannerAd, _isLoaded),
               ),
             ),
           ],
