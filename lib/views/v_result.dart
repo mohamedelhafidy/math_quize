@@ -34,14 +34,17 @@ class _ViewResultPageState extends State<ViewResultPage> {
   @override
   void initState() {
     super.initState();
-    AdsManager().loadAdInterstitialAd((p0) {
-      interstitialAd = p0;
-      setState(() {
-        isAdLoaded = true;
-      });
-    }, (p0) {
-      interstitialAd.dispose();
-    });
+    AdsManager().loadAdInterstitialAd(
+      (p0) {
+        interstitialAd = p0;
+        setState(() {
+          isAdLoaded = true;
+        });
+      },
+      (p0) {
+        interstitialAd.dispose();
+      },
+    );
   }
 
   @override
@@ -88,6 +91,7 @@ class _ViewResultPageState extends State<ViewResultPage> {
                             ),
                             (route) => false,
                           );
+                          interstitialAd.show();
                         },
                         child: Text(
                           "goToHome".tr(context: context),
