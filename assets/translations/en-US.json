@@ -14,6 +14,7 @@
     "titleMoreApps": "MORE APPS BY ME",
     "titleExitApp": "EXIT THE APP",
     "titleAnswer": "ANSWER : ",
+    "titlePolicy":"PRIVACY POLICY",
     "msgErrorName": "Name is required.",
     "msgErrorMessage": "Message is required.",
     "msgErrorEmail": "Email is required.",

@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/models/m_answer.dart';
+import 'package:math_quiz/constants/const_name.dart';
+import 'package:math_quiz/controllers/c_method_calcul.dart';
+import 'package:math_quiz/models/m_answer.dart';
 
 class WidgetCardAnswer extends StatelessWidget {
   const WidgetCardAnswer({

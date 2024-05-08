@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/controllers/ads_manager.dart';
-import 'package:math_quize/views/v_add_quiz.dart';
-import 'package:math_quize/widgets/w_app_bar.dart';
-import 'package:math_quize/widgets/w_card_operation.dart';
-import 'package:math_quize/widgets/w_drawer.dart';
-import 'package:math_quize/widgets/w_elevated_btn.dart';
+import 'package:math_quiz/constants/const_name.dart';
+import 'package:math_quiz/controllers/ads_manager.dart';
+import 'package:math_quiz/views/v_add_quiz.dart';
+import 'package:math_quiz/widgets/w_app_bar.dart';
+import 'package:math_quiz/widgets/w_card_operation.dart';
+import 'package:math_quiz/widgets/w_drawer.dart';
+import 'package:math_quiz/widgets/w_elevated_btn.dart';
 
 class ViewOperationPage extends StatefulWidget {
   const ViewOperationPage({super.key});
@@ -23,6 +23,8 @@ class _ViewOperationPageState extends State<ViewOperationPage> {
   //=====Ads vaiable ==============================
   late BannerAd _bannerAd;
   bool _isLoaded = false;
+  bool isAdLoaded = false;
+  late InterstitialAd interstitialAd;
   //==============================================
 
   goToAddQuiz(BuildContext context, String operation) {
@@ -50,7 +52,25 @@ class _ViewOperationPageState extends State<ViewOperationPage> {
         });
       },
     );
+
+    AdsManager().loadAdInterstitialAd(
+      (p0) {
+        interstitialAd = p0;
+        setState(() {
+          isAdLoaded = true;
+        });
+      },
+      (p0) {
+        interstitialAd.dispose();
+      },
+    );
     //========================
+  }
+
+  @override
+  void dispose() {
+    interstitialAd.dispose();
+    super.dispose();
   }
 
   @override
@@ -120,6 +140,8 @@ class _ViewOperationPageState extends State<ViewOperationPage> {
                 child: WidgetElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
+
+                      interstitialAd.show();
                     },
                     title: "goBack".tr(context: context),
                     width: double.infinity),

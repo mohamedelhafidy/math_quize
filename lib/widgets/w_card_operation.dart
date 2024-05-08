@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quiz/constants/const_name.dart';
 
 class WidgetCardOperation extends StatelessWidget {
   const WidgetCardOperation({

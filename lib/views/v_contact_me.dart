@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/widgets/w_app_bar.dart';
-import 'package:math_quize/widgets/w_elevated_btn.dart';
-import 'package:math_quize/widgets/w_textfield.dart';
+import 'package:math_quiz/controllers/c_method_calcul.dart';
+import 'package:math_quiz/widgets/w_app_bar.dart';
+import 'package:math_quiz/widgets/w_elevated_btn.dart';
+import 'package:math_quiz/widgets/w_textfield.dart';
 
 class ViewContactPage extends StatefulWidget {
   const ViewContactPage({super.key});

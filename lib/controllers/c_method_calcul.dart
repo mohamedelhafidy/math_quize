@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:math_quize/constants/const_name.dart';
+import 'package:math_quiz/constants/const_name.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
@@ -173,11 +173,22 @@ class ControllerMethods {
     }
   }
 
+  // Open Privace Policy Page.
+  void openPolicy() async {
+    var url =
+        Uri.parse('https://infowahfid2.blogspot.com/p/math-quiz-policy.html');
+    if (!await launchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   // Open Whatsapp App for send MSG.
   void launchWhatsAppUri() async {
     const link = WhatsAppUnilink(
       phoneNumber: '+212640001009',
-      text: "Welcome. Thank you for this wonderful application",
+      text: "Welcome. Thank you for this wonderful application MATH QUIZ",
     );
     // Convert the WhatsAppUnilink instance to a Uri.
     // The "launch" method is part of "url_launcher".

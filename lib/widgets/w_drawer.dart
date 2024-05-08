@@ -2,9 +2,9 @@ import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/views/v_my_home.dart';
+import 'package:math_quiz/constants/const_name.dart';
+import 'package:math_quiz/controllers/c_method_calcul.dart';
+import 'package:math_quiz/views/v_my_home.dart';
 
 class WidgetDrawer extends StatelessWidget {
   const WidgetDrawer({
@@ -70,6 +70,18 @@ class WidgetDrawer extends StatelessWidget {
             ),
             onTap: () {
               ControllerMethods().openPlayStore();
+            },
+          ),
+
+          // Button Policy
+          ListTile(
+            leading: const Icon(Icons.policy_outlined),
+            title: Text(
+              "titlePolicy".tr(context: context),
+              style: GoogleFonts.abel(fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              ControllerMethods().openPolicy();
             },
           ),
           //  Button Menu Exit app

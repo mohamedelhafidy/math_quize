@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdsManager {
-  static bool testMode = true; //===== قم بتغيير القيم الى false قبل تصدير الملف
+  static bool testMode =
+      false; //===== قم بتغيير القيم الى false قبل تصدير الملف
   late InterstitialAd? interstitialAd;
   int numInterstitialLoadAttemps = 0;
 

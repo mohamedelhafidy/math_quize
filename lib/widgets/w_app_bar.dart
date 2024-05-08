@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/localization/localization_checker.dart';
+import 'package:math_quiz/constants/const_name.dart';
+import 'package:math_quiz/localization/localization_checker.dart';
 
 class WidgetAppBar extends StatelessWidget implements PreferredSizeWidget {
   const WidgetAppBar({

@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/controllers/ads_manager.dart';
-import 'package:math_quize/views/v_operation.dart';
-import 'package:math_quize/widgets/w_app_bar.dart';
-import 'package:math_quize/widgets/w_drawer.dart';
-import 'package:math_quize/widgets/w_elevated_btn.dart';
+import 'package:math_quiz/constants/const_name.dart';
+import 'package:math_quiz/controllers/ads_manager.dart';
+import 'package:math_quiz/views/v_operation.dart';
+import 'package:math_quiz/widgets/w_app_bar.dart';
+import 'package:math_quiz/widgets/w_drawer.dart';
+import 'package:math_quiz/widgets/w_elevated_btn.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class MyHomePage extends StatefulWidget {

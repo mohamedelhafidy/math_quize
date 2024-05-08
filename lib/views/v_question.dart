@@ -4,15 +4,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/controllers/ads_manager.dart';
-import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/models/m_answer.dart';
-import 'package:math_quize/models/m_question.dart';
-import 'package:math_quize/views/v_result.dart';
-import 'package:math_quize/widgets/w_app_bar.dart';
-import 'package:math_quize/widgets/w_drawer.dart';
-import 'package:math_quize/widgets/w_elevated_btn.dart';
+import 'package:math_quiz/constants/const_name.dart';
+import 'package:math_quiz/controllers/ads_manager.dart';
+import 'package:math_quiz/controllers/c_method_calcul.dart';
+import 'package:math_quiz/models/m_answer.dart';
+import 'package:math_quiz/models/m_question.dart';
+import 'package:math_quiz/views/v_result.dart';
+import 'package:math_quiz/widgets/w_app_bar.dart';
+import 'package:math_quiz/widgets/w_drawer.dart';
+import 'package:math_quiz/widgets/w_elevated_btn.dart';
 
 class ViewQuestionPage extends StatefulWidget {
   const ViewQuestionPage({

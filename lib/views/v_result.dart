@@ -2,14 +2,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:math_quize/constants/const_name.dart';
-import 'package:math_quize/controllers/ads_manager.dart';
-import 'package:math_quize/controllers/c_method_calcul.dart';
-import 'package:math_quize/models/m_answer.dart';
-import 'package:math_quize/views/v_answer.dart';
-import 'package:math_quize/views/v_my_home.dart';
-import 'package:math_quize/widgets/w_app_bar.dart';
-import 'package:math_quize/widgets/w_drawer.dart';
+import 'package:math_quiz/constants/const_name.dart';
+import 'package:math_quiz/controllers/ads_manager.dart';
+import 'package:math_quiz/controllers/c_method_calcul.dart';
+import 'package:math_quiz/models/m_answer.dart';
+import 'package:math_quiz/views/v_answer.dart';
+import 'package:math_quiz/views/v_my_home.dart';
+import 'package:math_quiz/widgets/w_app_bar.dart';
+import 'package:math_quiz/widgets/w_drawer.dart';
 
 class ViewResultPage extends StatefulWidget {
   const ViewResultPage({
@@ -45,6 +45,12 @@ class _ViewResultPageState extends State<ViewResultPage> {
         interstitialAd.dispose();
       },
     );
+  }
+
+  @override
+  void dispose() {
+    interstitialAd.dispose();
+    super.dispose();
   }
 
   @override
