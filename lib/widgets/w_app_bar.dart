@@ -42,14 +42,15 @@ class WidgetAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ],
                   )),
               DropdownMenuItem(
-                  value: "ar",
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("🇸🇦"),
-                      Text("العربية"),
-                    ],
-                  )),
+                value: "ar",
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text("🇸🇦"),
+                    Text("العربية"),
+                  ],
+                ),
+              ),
             ],
             onChanged: (value) {
               LocalizationChecker.changeLangugeByCode(context, value!);
